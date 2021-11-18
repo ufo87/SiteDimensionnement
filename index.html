@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+      <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/mise_en_forme.css" media="all" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="images/logo_favIcon.png"/>
+
+    <title>Accueil</title>
+
+
+  </head>
+
+  <body style="direction: ltr; background-image: url(images/ARRIERE.JPG);">
+    <header>
+      <nav>
+        <div class="toggle">
+            <i>
+              <img src="images/bars-solid.svg" width="60px" height="30px" class="test">
+            </i>
+        </div>
+        <div class="logo">
+          <a href="http://www.ventelis.com">
+            <img src="images/logoventelis.png" alt="logo Ventelis" hspace="10"/>
+          </a>
+        </div>
+        <div class="menu">
+            <ul>
+              <li><a href="./pages/1_dim_canalisation.html"><span>Canalisation (débit)</span></a></li>
+              <li><a href="./pages/1_dim_canalisation_puissance.html"><span>Canalisation (puissance)</span></a></li>
+              <li><a href="./pages/0_Dim_Gaine_rect.html"><span>Gaine rectangulaire</span></a></li>
+              <li><a href="./pages/2_Dim_Gaine_circulaire.html"><span>Gaine circulaire</span></a></li>
+              <li><a href="./pages/2_Dim_Gaine_circulaire_roulee_soudee.html"><span>Gaine roulée soudée</span></a></li>
+              <li><a href="./pages/3_calculs_rapides_hydrauliques.html"><span>Calculs rapides hydrauliques</span></a></li>
+							<li><a href="./pages/1_panoplie_melange.html"><span>Panoplie mélange</span></a></li>
+            </ul>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('.toggle').click(function(){
+              $('.menu').toggleClass('active');
+            })
+          })
+        </script>
+      </nav>
+    </header>
+
+    <div class="boutton">
+          <a href="./pages/1_dim_canalisation.html"><span>Canalisation (débit connu)</span></a><p>
+          <a href="./pages/1_dim_canalisation_puissance.html"><span>Canalisation (puissance connue)</span></a><p>
+          <a href="./pages/0_Dim_Gaine_rect.html"><span>Gaine rectangulaire</span></a><p>
+          <a href="./pages/2_Dim_Gaine_circulaire.html"><span>Gaine circulaire</span></a><p>
+          <a href="./pages/2_Dim_Gaine_circulaire_roulee_soudee.html"><span>Gaine roulée soudée</span></a><p>
+          <a href="./pages/3_calculs_rapides_hydrauliques.html"><span>Calculs rapides hydrauliques</span></a><p>
+          <a href="./pages/1_panoplie_melange.html"><span>Panoplie mélange</span></a>
+    </div>
+
+  </body>
+</html>

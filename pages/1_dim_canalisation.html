@@ -1,0 +1,104 @@
+<html>
+	<head>
+				<title>Canalisation</title>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+
+				<link href="../css/mise_en_forme.css" rel="stylesheet" media="screen" type="text/css">
+		    <link rel="shortcut icon" type="image/png" href="../images/logo_favIcon.png"/>
+
+	</head>
+
+	<body style="background-image: url(../images/ARRIERE.JPG);" onload="load()">
+		<script src="../javascript/1_dim_canalisation.js"></script>
+
+		<header>
+			<nav>
+				<div class="toggle">
+						<i>
+							<img src="images/bars-solid.svg" width="60px" height="30px" class="test">
+						</i>
+				</div>
+				<div class="logo">
+					<a href="../index.html">
+						<img src="../images/logoventelis.png" alt="logo Ventelis" hspace="10"/>
+					</a>
+				</div>
+				<div class="menu">
+						<ul>
+							<li><a href="1_dim_canalisation.html" class="active"><span>Canalisation (débit)</span></a></li>
+							<li><a href="1_dim_canalisation_puissance.html"><span>Canalisation (puissance)</span></a></li>
+							<li><a href="0_Dim_Gaine_rect.html"><span>Gaine rectangulaire</span></a></li>
+							<li><a href="2_Dim_Gaine_circulaire.html"><span>Gaine circulaire</span></a></li>
+							<li><a href="2_Dim_Gaine_circulaire_roulee_soudee.html"><span>Gaine roulée soudée</span></a></li>
+							<li><a href="3_calculs_rapides_hydrauliques.html"><span>Calculs rapides hydrauliques</span></a></li>
+							<li><a href="1_panoplie_melange.html"><span>Panoplie mélange</span></a></li>
+						</ul>
+				</div>
+				<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$('.toggle').click(function(){
+							$('.menu').toggleClass('active');
+						})
+					})
+				</script>
+			</nav>
+		</header>
+
+		<div class="colonne_1">
+			<script src="../javascript/SuffixFunction.js"></script>
+			<script type="text/javascript">
+					$(function(){
+							$("#tauxGlycolCanalisation").suffix(" %");
+							$("#debitEauCanalisation").suffix(" l/h");
+							$("#pdcMaxCanalisation").suffix(" daPa/m");
+							$("#temperatureCanalisation").suffix(" °C");
+							$("#pdc_ajouteCanalisation").suffix(" kPa");
+
+					});
+			</script>
+			<div class="container">
+				<div class="omrs-input-group">
+					<label class="omrs-input-underlined">
+						<input required id="pdcMaxCanalisation" onkeyup="recuperationInformation()">
+						<span class="omrs-input-label">PdC Max</span>
+					</div>
+			</div>
+			<div class="container">
+				<div class="omrs-input-group">
+					<label class="omrs-input-underlined">
+						<input required id="temperatureCanalisation" onkeyup="recuperationInformation()">
+						<span class="omrs-input-label">Température eau</span>
+					</div>
+			</div>
+			<div class="container">
+				<div class="omrs-input-group">
+					<label class="omrs-input-underlined">
+						<input required id="tauxGlycolCanalisation" onkeyup="recuperationInformation()">
+						<span class="omrs-input-label">Taux glycol</span>
+					</div>
+			</div>
+			<div class="container">
+				<div class="omrs-input-group">
+					<label class="omrs-input-underlined">
+						<input required id="debitEauCanalisation" onkeyup="recuperationInformation()">
+						<span class="omrs-input-label">Débit</span>
+					</div>
+			</div>
+			<div class="container">
+				<div class="omrs-input-group">
+					<label class="omrs-input-underlined">
+						<input required id="pdc_ajouteCanalisation" onkeyup="recuperationInformation()">
+						<span class="omrs-input-label">PdC échangeur</span>
+					</div>
+			</div>
+
+		</div>
+
+		<div class="colonne_2" id="colonne_2">
+			<label id="rho" class="resultatSecondaire"></label>
+		</div>
+
+	</body>
+</html>

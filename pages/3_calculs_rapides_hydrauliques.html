@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<title>Rapides - Hydraulique</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="../css/mise_en_forme.css" rel="stylesheet" media="screen" type="text/css">
+		<link rel="shortcut icon" type="image/png" href="../images/logo_favIcon.png"/>
+
+	</head>
+
+	<body style="direction: ltr; background-image: url(../images/ARRIERE.JPG);" onload="load()">
+
+		<header>
+			<nav>
+				<div class="toggle">
+						<i>
+							<img src="images/bars-solid.svg" width="60px" height="30px" class="test">
+						</i>
+				</div>
+				<div class="logo">
+					<a href="../index.html">
+						<img src="../images/logoventelis.png" alt="logo Ventelis" hspace="10"/>
+					</a>
+				</div>
+				<div class="menu">
+						<ul>
+							<li><a href="1_dim_canalisation.html"><span>Canalisation (débit)</span></a></li>
+							<li><a href="1_dim_canalisation_puissance.html"><span>Canalisation (puissance)</span></a></li>
+							<li><a href="0_Dim_Gaine_rect.html"><span>Gaine rectangulaire</span></a></li>
+							<li><a href="2_Dim_Gaine_circulaire.html"><span>Gaine circulaire</span></a></li>
+							<li><a href="2_Dim_Gaine_circulaire_roulee_soudee.html"><span>Gaine roulée soudée</span></a></li>
+							<li><a href="3_calculs_rapides_hydrauliques.html" class="active"><span>Calculs rapides hydrauliques</span></a></li>
+							<li><a href="1_panoplie_melange.html"><span>Panoplie mélange</span></a></li>
+						</ul>
+				</div>
+				<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$('.toggle').click(function(){
+							$('.menu').toggleClass('active');
+						})
+					})
+				</script>
+			</nav>
+		</header>
+
+		<!-- colonne de gauche -->
+		<div class="colonne_1">
+			<div class="radioBoutonHeader CalculRapide">
+				<label class="titreRadioBoutonHeader">Type de calcul souhaité</label>
+				<div class="radioBoutonLabel">
+					<label for="radioPuissanceDebit_id">
+						<input type="radio" name="radio" value="3" id="radioPuissanceDebit_id" onclick="radioclick(3)">
+						<figure >
+							<img src="../images/ampoule.svg" title="Puissance et débit">
+							<img src="../images/robinet.svg" title="Puissance et débit">
+							<figcaption><small>Puissance et <br>débit connus</small></figcaption>
+						</figure>
+					</label>
+
+					<label for="radioDebitTemperature_id">
+						<input type="radio" name="radio" value="1" id="radioDebitTemperature_id" onclick="radioclick(1)" checked>
+						<figure>
+							<img src="../images/robinet.svg" title="Débit et températures">
+							<img src="../images/temperature.svg" title="Débit et températures">
+							<figcaption><small>Débit et <br>températures connus</small></figcaption>
+						</figure>
+					</label>
+
+					<label for="radioPuissanceTemperature_id">
+						<input type="radio" name="radio" value="2" id="radioPuissanceTemperature_id" onclick="radioclick(2)">
+						<figure>
+							<img src="../images/ampoule.svg" title="Puissance et températures">
+							<img src="../images/temperature.svg" title="Puissance et températures">
+						<figcaption><small>Puissance et <br>températures connues</small></figcaption>
+						</figure>
+					</label>
+
+
+				</div>
+			</div>
+
+				<script src="../javascript/SuffixFunction.js"></script>
+				<script type="text/javascript">
+						$(function(){
+								$("#tauxGlycolRapide").suffix(" %");
+								$("#temperatureEauAllerRapide").suffix(" °C");
+								$("#temperatureEauRetourRapide").suffix(" °C");
+								$("#debitEauRapide").suffix(" l/h");
+								$("#puissanceRapide").suffix(" W");
+						});
+				</script>
+				<div class="container">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+							<input required id="tauxGlycolRapide" onkeyup="recuperationInformation()">
+							<span class="omrs-input-label">Taux glycol</span>
+						</div>
+				</div>
+				<div class="container" id="temperatureEauAllerRapideContainer">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+							<input required id="temperatureEauAllerRapide" onkeyup="recuperationInformation()">
+							<span class="omrs-input-label">Température aller</span>
+						</div>
+				</div>
+				<div class="container" id="temperatureEauRetourRapideContainer">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+							<input required id="temperatureEauRetourRapide" onkeyup="recuperationInformation()">
+							<span class="omrs-input-label">Température retour</span>
+						</div>
+				</div>
+				<div class="container" id="debitEauRapideContainer">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+							<input required id="debitEauRapide" onkeyup="recuperationInformation()">
+							<span class="omrs-input-label">Débit</span>
+						</div>
+				</div>
+				<div class="container" id="puissanceRapideContainer">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+							<input required id="puissanceRapide" onkeyup="recuperationInformation()">
+							<span class="omrs-input-label">Puissance</span>
+						</div>
+				</div>
+		</div>
+		<!-- colonne de gauche -->
+		<div class="colonne_2" id="colonne_2">
+				<label class="resultatSecondaire" id="erreur_tableau_vide"></label>
+		</div>
+	</body>
+
+	<script src="../javascript/3_calculs_rapides_hydrauliques.js"></script>
+
+
+</html>

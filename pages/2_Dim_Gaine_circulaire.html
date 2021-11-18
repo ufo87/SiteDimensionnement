@@ -1,0 +1,151 @@
+<html>
+	<head>
+			<title>Gaine circulaire</title>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			<link href="../css/mise_en_forme.css" rel="stylesheet" media="screen" type="text/css">
+	    <link rel="shortcut icon" type="image/png" href="../images/logo_favIcon.png"/>
+
+	</head>
+
+	<body style="direction: ltr; background-image: url(../images/ARRIERE.JPG);" onload="load()">
+
+		<header>
+			<nav>
+				<div class="toggle">
+						<i>
+							<img src="images/bars-solid.svg" width="60px" height="30px" class="test">
+						</i>
+				</div>
+				<div class="logo">
+					<a href="../index.html">
+						<img src="../images/logoventelis.png" alt="logo Ventelis" hspace="10"/>
+					</a>
+				</div>
+				<div class="menu">
+						<ul>
+							<li><a href="1_dim_canalisation.html"><span>Canalisation (débit)</span></a></li>
+							<li><a href="1_dim_canalisation_puissance.html"><span>Canalisation (puissance)</span></a></li>
+							<li><a href="0_Dim_Gaine_rect.html"><span>Gaine rectangulaire</span></a></li>
+							<li><a href="2_Dim_Gaine_circulaire.html" class="active"><span>Gaine circulaire</span></a></li>
+							<li><a href="2_Dim_Gaine_circulaire_roulee_soudee.html"><span>Gaine roulée soudée</span></a></li>
+							<li><a href="3_calculs_rapides_hydrauliques.html"><span>Calculs rapides hydrauliques</span></a></li>
+							<li><a href="1_panoplie_melange.html"><span>Panoplie mélange</span></a></li>
+						</ul>
+				</div>
+				<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$('.toggle').click(function(){
+							$('.menu').toggleClass('active');
+						})
+					})
+				</script>
+			</nav>
+		</header>
+
+		<!-- colonne de gauche -->
+		<div class="colonne_1">
+			<div class="radioBoutonHeader">
+				<label class="titreRadioBoutonHeader">Type de calcul souhaité</label>
+				<div class="radioBoutonLabel">
+					<label for="radioVitesseMax_id">
+						<input type="radio" name="radio" value="1" id="radioVitesseMax_id" onclick="radioclick(1)" checked>
+						<figure>
+							<img src="../images/vitesse3.svg" title="Vitesse Max">
+							<figcaption><small>Vitesse max</small></figcaption>
+						</figure>
+					</label>
+
+					<label for="radioBruit_id">
+						<input type="radio" name="radio" value="2" id="radioBruit_id" onclick="radioclick(2)">
+						<figure>
+							<img src="../images/sound.png" title="Bruit">
+							<figcaption><small>Bruit</small></figcaption>
+						</figure>
+					</label>
+
+					<label for="radioPdcMax_id">
+						<input type="radio" name="radio" value="3" id="radioPdcMax_id" onclick="radioclick(3)">
+						<figure >
+							<img src="../images/vanne.svg" title="PdC Max">
+							<figcaption><small>PdC max</small></figcaption>
+						</figure>
+					</label>
+
+					<label for="radioVitesseMaxBruit_id">
+						<input type="radio" name="radio" value="4" id="radioVitesseMaxBruit_id" onclick="radioclick(4)">
+						<figure >
+							<img src="../images/vitesse3.svg" title="Vitesse et Bruit">
+							<img src="../images/sound.png" title="Vitesse et Bruit">
+							<figcaption><small>Vitesse/Bruit</small></figcaption>
+						</figure>
+					</label>
+				</div>
+			</div>
+			<script src="../javascript/SuffixFunction.js"></script>
+			<script type="text/javascript">
+					$(function(){
+							$("#debitGaineCirculaire").suffix(" m³/h");
+							$("#vitesseMaxGaineCirculaire").suffix(" m/s");
+							$("#pdcMaxGaineCirculaire").suffix(" daPa/m");
+					});
+			</script>
+			<div class="container">
+				<div class="omrs-input-group">
+					<label class="omrs-input-underlined">
+						<input required id="debitGaineCirculaire" onkeyup="recuperationInformation()">
+						<span class="omrs-input-label">Débit</span>
+					</div>
+			</div>
+			<div class="container" id="vitesseMaxGaineCirculaireContainer">
+				<div class="omrs-input-group">
+					<label class="omrs-input-underlined">
+						<input required id="vitesseMaxGaineCirculaire" onkeyup="recuperationInformation()">
+						<span class="omrs-input-label">Vitesse Max</span>
+					</div>
+			</div>
+			<div class="container" id="pdcMaxGaineCirculaireContainer">
+				<div class="omrs-input-group">
+					<label class="omrs-input-underlined">
+						<input required id="pdcMaxGaineCirculaire" onkeyup="recuperationInformation()">
+						<span class="omrs-input-label">PdC Max</span>
+					</div>
+			</div>
+
+
+			<div class="checkboxDiv" id="checkboxDiv">
+				<p class="checkboxP">
+					<label id="label" class="checkboxBruitTitre">Choix des classes de bruits souhaités</label>
+				</p>
+
+				<p class="checkboxP">
+					<input type="checkbox" name="classeBruit" id="iso30_id" value="iso 30" onclick="recuperationInformation()">
+					<label for="iso30_id" id="iso30Label" class="iso30label_id" aria-describedby="label">iso 30</label>
+				</p>
+
+				<p class="checkboxP">
+					<input type="checkbox" name="classeBruit" id="iso40_id" value="iso 40" onclick="recuperationInformation()">
+					<label for="iso40_id" id="iso40Label" aria-describedby="label">iso 40</label>
+				</p>
+
+				<p class="checkboxP">
+					<input type="checkbox" name="classeBruit" id="isoIndus_id" value="iso indus" onclick="recuperationInformation()">
+					<label for="isoIndus_id" id="isoIndusLabel" aria-describedby="label">&lt; indus</label>
+				</p>
+
+				<p class="checkboxP">
+					<input type="checkbox" name="classeBruit" id="isoIndusPlus_id" value="&gt; à iso indus" onclick="recuperationInformation()">
+					<label for="isoIndusPlus_id" id="isoIndusPlusLabel" aria-describedby="label">&gt; indus</label>
+				</p>
+			</div>
+		</div>
+
+		<!-- colonne de gauche -->
+		<div class="colonne_2" id="colonne_2">
+		</div>
+
+		<script src="../javascript/2_Dim_Gaine_circulaire.js"></script>
+	</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<title>Rapides - Hydraulique</title>
+		<meta charset="utf-8">
+
+		<link href="../css/mise_en_forme.css" rel="stylesheet" media="screen" type="text/css">
+		<link rel="shortcut icon" type="image/png" href="../images/logo_favIcon.png"/>
+
+		<script src="../javascript/1_panoplie_melange.js"></script>
+
+
+	</head>
+
+	<body style="direction: ltr; background-image: url(../images/ARRIERE.JPG);" onload="load()">
+
+		<header>
+			<nav>
+				<div class="toggle">
+						<i>
+							<img src="images/bars-solid.svg" width="60px" height="30px" class="test">
+						</i>
+				</div>
+				<div class="logo">
+					<a href="../index.html">
+						<img src="../images/logoventelis.png" alt="logo Ventelis" hspace="10"/>
+					</a>
+				</div>
+				<div class="menu">
+						<ul>
+							<li><a href="1_dim_canalisation.html"><span>Canalisation (débit)</span></a></li>
+							<li><a href="1_dim_canalisation_puissance.html"><span>Canalisation (puissance)</span></a></li>
+							<li><a href="0_Dim_Gaine_rect.html"><span>Gaine rectangulaire</span></a></li>
+							<li><a href="2_Dim_Gaine_circulaire.html"><span>Gaine circulaire</span></a></li>
+							<li><a href="2_Dim_Gaine_circulaire_roulee_soudee.html"><span>Gaine roulée soudée</span></a></li>
+							<li><a href="3_calculs_rapides_hydrauliques.html"><span>Calculs rapides hydrauliques</span></a></li>
+							<li><a href="1_panoplie_melange.html" class="active"><span>Panoplie mélange</span></a></li>
+						</ul>
+				</div>
+				<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$('.toggle').click(function(){
+							$('.menu').toggleClass('active');
+						})
+					})
+				</script>
+			</nav>
+		</header>
+
+		<!-- colonne de gauche -->
+		<div class="colonne_1">
+
+				<script src="../javascript/SuffixFunction.js"></script>
+				<script type="text/javascript">
+						$(function(){
+								$("#tauxGlycolMelange").suffix(" %");
+								$("#debitEauMelange").suffix(" l/h");
+								$("#temperatureEau1").suffix(" °C");
+								$("#temperatureEau2").suffix(" °C");
+								$("#temperatureEau3").suffix(" °C");
+								$("#pdc_ajouteMelange").suffix(" daPa/m");
+						});
+				</script>
+				<div class="container">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+						  <input required id="tauxGlycolMelange" onkeyup="recuperationInformation()">
+						  <span class="omrs-input-label">Taux glycol</span>
+						</div>
+				</div>
+				<div class="container">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+						  <input required id="debitEauMelange" onkeyup="recuperationInformation()">
+						  <span class="omrs-input-label">Débit D2</span>
+						</div>
+				</div>
+				<div class="container">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+						  <input required id="temperatureEau1" onkeyup="recuperationInformation()">
+						  <span class="omrs-input-label">Température T1</span>
+						</div>
+				</div>
+				<div class="container">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+						  <input required id="temperatureEau2" onkeyup="recuperationInformation()">
+						  <span class="omrs-input-label">Température T2</span>
+						</div>
+				</div>
+				<div class="container">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+							<input required id="temperatureEau3" onkeyup="recuperationInformation()">
+							<span class="omrs-input-label">Température T3</span>
+						</div>
+				</div>
+				<div class="container">
+					<div class="omrs-input-group">
+						<label class="omrs-input-underlined">
+							<input required id="pdc_ajouteMelange" onkeyup="recuperationInformation()">
+							<span class="omrs-input-label">PdC de l'échangeur</span>
+						</div>
+				</div>
+				<div class="image">
+					<img src="../images/panoplie_melange.png" alt="Schéma panoplie mélange">
+				</div>
+			</div>
+
+
+		<!-- colonne de gauche -->
+		<div class="colonne_2" id="colonne_2">
+				<label class="resultatSecondaire" id="erreur_tableau_vide"></label>
+		</div>
+	</body>
+
+
+
+
+</html>

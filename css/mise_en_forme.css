@@ -1,0 +1,374 @@
+@charset "utf-8";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body{
+  margin-top:: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+header {
+    display: inline-block;
+    width:85.5%;
+    min-width: 750px;
+    position:absolute;
+    top:0px;
+    left: 50%; /* on positionne l'élément à la moitié de l'écran */
+    margin-left: calc(85.5%/-2); /* on applique une marge négative de la moitié de la largeur de l'élément */
+}
+nav{
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 10px 100px;
+  box-sizing: border-box;
+  transition: .5s;
+  z-index: 999;
+  background: #ffffff;
+}
+nav .logo{
+  float: left;
+}
+nav .logo img{
+  height: 44px;
+  transition: .5s;
+}
+nav ul{
+  float: right;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+nav ul li{
+  list-style: none;
+}
+nav ul li a{
+  line-height: 80px;
+  color: #000;
+  padding: 5px 20px;
+  text-decoration: none;
+  transition: .5s;
+}
+nav ul li a.active,
+nav ul li a:hover  {
+  color: #fff;
+  background: #DA3740;
+}
+
+body .boutton{
+  position: absolute;
+  top: 70px;
+  left: 10px;
+  width:100%;
+  height:90vh;
+}
+body .boutton a{
+  display: inline-block;
+  position: relative;
+  padding: 15px 25px;
+  top: 40px;
+  left: 200px;
+  max-height: 50px;
+  min-width: 400px;
+  max-width: 700px;
+  background: rgba(169, 172 ,174, 0.9);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border: 2px solid #111;
+  border-radius: 30px;
+  color: #111;
+  z-index: 1;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+body .boutton a:hover{
+  letter-spacing: 3px;
+}
+
+nav .toggle{
+  width: 100%;
+  padding: 10px 20px;
+  background: #DA3740;
+  text-align: right;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 30px;
+  display: none;
+}
+@media (max-width:1566px) {
+  nav .toggle{
+    display: block;
+  }
+  nav ul{
+    width: 100%;
+  }
+  nav ul li{
+    display: block;
+    text-align: center;
+  }
+  nav .logo{
+    display: none;
+  }
+  nav .menu{
+    display: none;
+    background: #d5d3d3;
+  }
+  nav .menu.active a
+  {
+    display: inline-block;
+    width: auto;
+    height: 100px;
+    z-index: 2;
+  }
+  nav .menu.active{
+    display: flex;
+
+  }
+}
+
+.colonne_1{
+  float: left;
+  position: relative;
+  left: 50px;
+  top: 100px;
+  width: 20%;
+  height: 75%;
+  margin-top: 2%;
+}
+
+
+.colonne_1 .radioBoutonHeaderFournisseur{
+  position: relative;
+  display: inline-flex;
+  top: 0px;
+}
+.colonne_1 .radioBoutonHeaderFournisseur .radioBoutonLabelFournisseur{
+  position: relative;
+  display: flex;
+  float: left;
+  width: 20%;
+  top: 20px;
+  padding-bottom: 45px;
+  left: -70px;
+}
+.colonne_1 .radioBoutonHeaderFournisseur .radioBoutonLabelFournisseur input[type=radio]{
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+.colonne_1 .radioBoutonHeaderFournisseur .radioBoutonLabelFournisseur label{
+
+}
+
+.colonne_1 .radioBoutonHeader{
+  position: relative;
+  display: flex;
+  top: 0px;
+}
+.colonne_1 .radioBoutonHeader .radioBoutonLabel{
+  position: relative;
+  display: flex;
+  float: left;
+  width: 45%;
+  top: 25px;
+  right: 150px;
+  padding-bottom: 30px;
+}
+
+.colonne_1 .radioBoutonHeader .radioBoutonLabel input[type=radio]{
+  display: none;
+}
+.colonne_1 .radioBoutonHeaderFournisseur .radioBoutonLabelFournisseur input[type=radio] figure,
+.colonne_1 .radioBoutonHeader .radioBoutonLabel input[type=radio] figure {
+	text-align: center;
+  min-width: 30px;
+}
+.colonne_1 .radioBoutonHeaderFournisseur .radioBoutonLabelFournisseur input[type=radio]:checked + figure,
+.colonne_1 .radioBoutonHeader .radioBoutonLabel input[type=radio]:checked + figure {
+	border: 2px solid red;
+}
+
+.colonne_1 .radioBoutonHeaderFournisseur .radioBoutonLabelFournisseur label figure,
+.colonne_1 .radioBoutonHeader .radioBoutonLabel label figure {
+	margin-right: 5px;
+  margin-left: 15px;
+  margin-top: 5px;
+  width: auto;
+}
+.colonne_1 .radioBoutonHeaderFournisseur .radioBoutonLabelFournisseur label figure,
+.colonne_1 .CalculRapide .radioBoutonLabel label figure {
+	margin-right: 5px;
+  margin-left: 15px;
+  margin-top: 5px;
+  width: 80px;
+}
+
+.radioBoutonHeader img{
+  display: inline;
+  width: 33px;
+  height: 25px;
+  margin-bottom: 8px;
+}
+
+.titreRadioBoutonHeader, .checkboxBruitTitre{
+  height: 17px;
+  text-decoration: underline;
+}
+
+
+.colonne_2{
+  float: left;
+  width: 55%;
+  /*! padding-left: 4%; */
+  margin-left: 4%;
+  margin-top: 100px;
+}
+.colonne_2 .resultatSecondaire{
+  position: relative;
+  left: 10%;
+  font-size: 1.5em;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Chrome */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin:0;
+}
+
+/* Opéra*/
+input::-o-inner-spin-button,
+input::-o-outer-spin-button {
+	-o-appearance: none;
+	margin:0
+}
+
+
+/*    Mise en forme du tableau   */
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  background-color: #97C7C1;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+table td, table th {
+  padding: 12px 15px;
+}
+table thead tr{
+  background: linear-gradient(to bottom, #e3686f 0%, #dd4a52 66%, #DA363F 100%);
+  border-bottom: 3px solid #404040;
+  text-align: center;
+  font-weight: bold;
+}
+table tbody td {
+  font-size: 1em;
+  color: #000000;
+}
+table tbody tr:hover:nth-child(odd), tr:hover:nth-child(even) {
+	background: linear-gradient(to bottom, #e3686f 0%, #dd4a52 66%, #DA363F 100%);
+}
+table tbody tr {
+  border-bottom: 1px solid #404040;
+}
+table tbody tr:last-of-type {
+  border-bottom: 3px solid #404040;
+}
+
+.image img{
+  height: 50px;
+  width: auto;
+}
+.image img:hover{
+  height: 100%;
+  width: auto;
+}
+
+/** BEGIN: Non Openmrs CSS **/
+div.container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-around;
+	margin-top: 10px;
+	padding: 5px;
+	border-radius: 8px;
+  width: 50%;
+  background: var(--omrs-color-interaction-minus-two);
+}
+:root {
+	--omrs-color-ink-medium-contrast: rgba(19, 19, 21, 0.6);
+	--omrs-color-interaction: #1e4bd1;
+	--omrs-color-interaction-minus-two: rgba(151, 199, 193, 0.32) /*rgba(73, 133, 224, 0.12)*/;
+	--omrs-color-ink-high-contrast: #121212;
+
+}
+/** END: Non Openmrs CSS **/
+div.omrs-input-group {
+  margin-bottom: 0.1rem;
+  position: relative;
+  width: 100%;
+}
+
+/* Input*/
+.omrs-input-underlined > input{
+	border: none;
+	border-bottom: 0.125rem solid var(--omrs-color-ink-medium-contrast);
+	width: 100%;
+	height: 4rem;
+	font-size: 1.0625rem;
+	padding-left: 1.275rem;
+	line-height: 147.6%;
+	padding-top: 2rem;
+	padding-bottom: 0.5rem;
+  background: transparent;
+}
+.omrs-input-underlined > input:focus{
+	outline: none;
+  background-color: rgba(151, 199, 193, 0.62);
+}
+
+.omrs-input-underlined > .omrs-input-label{
+	position: absolute;
+	top: 0.9375rem;
+	left: 0.875rem;
+	line-height: 147.6%;
+	color: var(--omrs-color-ink-medium-contrast);
+	transition: top .2s;
+}
+
+.omrs-input-underlined > input:hover{
+	background: rgba(151, 199, 193, 0.62);
+	border-color: var(--omrs-color-ink-high-contrast);
+}
+
+.omrs-input-underlined > input:focus + .omrs-input-label,
+.omrs-input-underlined > input:valid + .omrs-input-label{
+	top: 0;
+	font-size: 0.9375rem;
+	margin-bottom: 32px;;
+}
+
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus + .omrs-input-label,
+.omrs-input-filled:not(.omrs-input-danger) > input:focus + .omrs-input-label {
+	color: var(--omrs-color-interaction);
+}
+
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus,
+.omrs-input-filled:not(.omrs-input-danger) > input:focus {
+	border-color: var(--omrs-color-interaction);
+}
